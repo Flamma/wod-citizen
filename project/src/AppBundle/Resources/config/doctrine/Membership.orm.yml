@@ -1,0 +1,30 @@
+AppBundle\Entity\Membership:
+    type: entity
+    table: memberships
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: type
+        type: string
+    discriminatorMap:
+        player: PlayerMembership
+        storyteller: StorytellerMembership
+        
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+                    
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: memberships
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        chronicle:
+            targetEntity: Chronicle
+            inversedBy: memberships
+            joinColumn:
+                name: chronicle_id
+                referencedColumnName: id
+

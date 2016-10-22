@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if success %}
+        <div>{% trans %}User is activated. You can now login.{% endtrans %}</div>
+    {% else %}
+        <div>{% trans %}User have not been activated.{% endtrans %}</div>
+    {% endif %}
+    {% for flash_message in app.session.flashbag.get('error') %}
+        <div class="flash-error">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+    <div><a href="{{ path('home') }}">{% trans %}Return{% endtrans %}</a></div>
+
+{% endblock %}

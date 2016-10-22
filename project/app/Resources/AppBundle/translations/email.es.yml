@@ -1,0 +1,17 @@
+Activate your account: Activa tu usuario
+RegistrationEmailHtml: >
+    <h1>¡Hola %name%!</h1>
+    <div>Esta dirección de correo se ha usado para registrar una cuenta en WoD Citizen.</div>
+    <div/>
+    <div>Si no lo hiciste tú, no hagas nada, sólo ignora este mensaje.</div>
+    <div/>
+    <div>Si quieres registrar un usuario con esta dirección, pincha en el siguiente enlace:</div>
+    <div/>
+RegistrationEmailTxt: >
+    ¡Hola %name%!
+    Esta dirección de correo se ha usado para registrar una cuenta en WoD Citizen.
+    
+    Si no lo hiciste tú, no hagas nada, sólo ignora este mensaje.
+
+    Si quieres registrar un usuario con esta dirección, pincha en el siguiente enlace:
+

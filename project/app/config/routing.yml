@@ -1,0 +1,55 @@
+home:
+    path: /
+    defaults: { _controller: AppBundle:Default:index }
+
+
+# Default actions
+new_chronicle:
+    path: /chronicle/new
+    defaults: { _controller: AppBundle:Default:newChronicle }
+    
+add_player_to_chronicle:
+    path: /chronicle/{id}/player/new
+    defaults: { _controller: AppBundle:Default:addPlayerToChronicle }
+
+view_chronicle:
+    path: /chronicle/{id}
+    defaults: { _controller: AppBundle:Default:viewChronicle }
+    
+# Friends
+add_friend:
+    path: /friend/add
+    defaults: { _controller: AppBundle:Default:addFriend }
+    
+# Security actions    
+login:
+    path: /user/login
+    defaults: { _controller: AppBundle:Security:login }
+    
+logout:
+    path: /user/logout
+    
+
+register:
+    path: /user/new
+    defaults: { _controller: AppBundle:Security:register }
+    
+registration_sent:
+    path: /user/new/sent
+    defaults: { _controller: AppBundle:Security:registrationSent }
+
+activate:
+    path: /user/new/activate/{id}
+    defaults: { _controller: AppBundle:Security:activateUser}
+    
+
+
+# Debug actions
+debug_populate:
+    path: /debug/populate
+    defaults: {_controller: AppBundle:Debug:populate}
+    
+debug_showUser:
+    path: /debug/user/{userpar}
+    defaults: {_controller: AppBundle:Debug:showUser, userpar:NULL}
+

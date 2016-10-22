@@ -1,0 +1,38 @@
+AppBundle\Entity\Chronicle:
+    type: entity
+    table: chronicles
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+    fields:
+        name:
+            type: string
+            length: 256
+        createdAt:
+            type: datetime
+
+    manyToOne:
+        creator:
+            targetEntity: User
+            inversedBy: chronicles
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        game:
+            targetEntity: Game
+            joinColumn:
+                name: game_id
+                referencedColumnName: id
+
+    oneToMany:
+        characters:
+            targetEntity: Character
+            mappedBy: chronicle
+        memberships:
+            targetEntity: Membership
+            mappedBy: chronicle
+
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]
+

@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+    
+    {% if users | length  == 0 %}
+        No characters matched
+    {% else %}
+        {% for user in users %}
+            <h2>User {{ user.getName() }}</h2>
+            {% for character in user.getCharacters() %}
+                <h3>Character {{ character.getName() }}</h3>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    
+    
+{% endblock %}
+

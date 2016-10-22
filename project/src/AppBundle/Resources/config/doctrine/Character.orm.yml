@@ -1,0 +1,23 @@
+AppBundle\Entity\Character:
+    type: entity
+    table: characters
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+            
+    fields:
+        name:
+            type: string
+            length: 256
+            
+    manyToOne:
+        user:
+            targetEntity: User
+            inversedBy: characters
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                
+
+

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+    
+    <div>{{ 'Chronicle "%chronicle_name%" created!' | trans({'%chronicle_name%' : chronicle_name}) | raw }}</div>
+
+
+    <div><a href="{{ path('home') }}">{% trans %}Return{% endtrans %}</a></div>
+{% endblock %}

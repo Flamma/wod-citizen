@@ -1,0 +1,2 @@
+AppBundle\Entity\PlayerMembership:
+    type: entity

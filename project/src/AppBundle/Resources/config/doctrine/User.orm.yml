@@ -1,0 +1,37 @@
+AppBundle\Entity\User:
+    type: entity
+    table: users
+    id:
+        id:
+            type: guid
+            generator: {strategy: UUID}
+            
+    fields:
+        email:
+            type: string
+            # This length was copied from cookbook.
+            # If too long, cannot set to UNIQUE
+            length: 60
+            unique: true
+        password:
+            type: string
+            length: 256
+        plainpassword:
+            type: boolean
+        roles:
+            type: simple_array
+        enabled:
+            type: boolean
+        name:
+            type: string
+            length: 256
+            
+            
+            
+    oneToMany:
+        characters:
+            targetEntity: Character
+            mappedBy: user
+        memberships:
+            targetEntity: Membership
+            mappedBy: user

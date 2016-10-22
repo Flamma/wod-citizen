@@ -1,0 +1,10 @@
+<div>
+    <h2>{% trans %}Your chronicles{% endtrans %}</h2>
+    <div id="chronicles">
+    {% for chronicle in chronicles %}
+        <h3><a href="{{ path('view_chronicle', {'id': chronicle.id})}}">{{ chronicle.name }}</a></h3>
+        <div>{% trans %}Game{% endtrans %}: {{ chronicle.game.name | trans({}, 'games') }}</div>
+    {% endfor %}
+    </div>
+    <div><a href="{{ path('new_chronicle') }}">{% trans %}Create a new chronicle{% endtrans %}</a></div>
+</div>

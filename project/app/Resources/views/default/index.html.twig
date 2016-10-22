@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+            <div id="welcome">
+                <h2>{{ 'Welcome, %userName%' | trans({'%userName%' : userName}) | raw }}</h2>
+
+                {% if chronicles is not null  %}
+                    {% include 'default/parts/member-chronicles.html.twig' %}
+                {% endif %}
+
+            </div>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+#welcome, #status { margin-bottom: 2em; }
+#welcome h1 span { display: block; font-size: 75%; }
+
+</style>
+{% endblock %}

@@ -1,0 +1,27 @@
+AppBundle\Entity\Friendship:
+    type: entity
+    table: friendships
+        
+    id:
+        id:
+            type: integer
+            generator: {strategy: AUTO}
+            
+    fields:
+        accepted:
+            type: boolean
+                    
+    manyToOne:
+        user1:
+            targetEntity: User
+            inversedBy: friendships
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+        user2:
+            targetEntity: User
+            inversedBy: friendships
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+

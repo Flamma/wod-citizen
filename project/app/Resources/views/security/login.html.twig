@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }} </div>
+    {% endif %}
+    
+    {# Why use a traditional form instead of a symfony form? #}
+    <form action="{{ path('login') }}" method="post">
+        <label for="email">{% trans %}Email{% endtrans %}:</label>
+        <input type="text" id="email" name="_username" value="{{ last_email }}">
+        
+        <label for="password">{% trans %}Password{% endtrans %}:</label>
+        <input type="password" id="password" name="_password" />
+        
+        <button type="submit">{% trans %}Login{% endtrans %}</button>
+    </form>
+    
+    <div>
+        {% trans %}Don't have an account?{% endtrans %}
+        <a href="{{ registerLink }}">{% trans %}Register right now!{% endtrans %}</a>
+    </div>
+    <div><a href="{{ path('home') }}">{% trans %}Return{% endtrans %}</a></div>
+{% endblock %}

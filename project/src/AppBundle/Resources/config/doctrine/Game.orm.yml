@@ -1,0 +1,10 @@
+AppBundle\Entity\Game:
+    type: entity
+    table: games
+    id:
+        id:
+            type: string
+    fields:
+        name:
+            type: string
+            

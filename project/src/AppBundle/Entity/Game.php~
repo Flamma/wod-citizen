@@ -1,0 +1,11 @@
+<?php
+
+namespace AppBundle\Entity;
+
+class Game
+{
+    private $key;
+    private $name;
+}
+
+?>

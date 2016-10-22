@@ -1,0 +1,4 @@
+{% trans_default_domain "email" %}
+{{ 'RegistrationEmailHtml' | trans({'%name%' : name}) | raw }}
+
+<a href="{{ confirmationLink }}">{{ confirmationLink }}</a>

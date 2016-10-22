@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="flash-notice">
+            {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    <div>{{ 'Player "%player_name%" added to chronicle "%chronicle_name%"' |
+        trans({'%chronicle_name%' : chronicle_name, '%player_name%' : player_name})
+        | raw }}</div>
+
+
+    <div><a href="{{ path('view_chronicle', {'id': chronicle_id} ) }}">{% trans %}Return{% endtrans %}</a></div>
+{% endblock %}

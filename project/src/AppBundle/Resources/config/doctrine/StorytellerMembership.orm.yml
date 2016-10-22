@@ -1,0 +1,2 @@
+AppBundle\Entity\StorytellerMembership:
+    type: entity

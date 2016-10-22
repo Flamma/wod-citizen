@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if chronicle is null %}
+<div class="alert">{% trans %}You have no permission to view this chronicle.{% endtrans%}</div>
+{% else %}
+<div>
+    <h2>{{ chronicle.name }}</h2>
+    <div>{% trans %}Game{% endtrans %}: {{ chronicle.game.name | trans({}, 'games') }}</div>
+    <div id="players"><div>{% trans %}Players{% endtrans%}:</div>
+
+    {# List of Storytellers #}
+    {% for storyteller in storytellers %}
+        <div><img src="{{ asset('images/storyteller.png') }}" class="icon"/>{{ storyteller.name }}</div>
+    {% endfor %}
+
+    {# List of Players #}
+    {% for player in players %}
+        <div><img src="{{ asset('images/player.png') }}" class="icon"/>{{ player.name }}</div>
+    {% endfor %}
+
+    </div>
+
+    {# If user is a Storyteller on the chronicle, allow him to add players to it #}
+    {% if userIsSt %}
+        <div><a href="{{ path('add_player_to_chronicle', {'id': chronicle.id}) }}">
+            {% trans %}Add another player.{% endtrans %}
+        </a></div>
+    {% endif %}
+
+
+</div>
+{% endif %}
+<div><a href="{{ path('home') }}">{% trans %}Return{% endtrans %}</a></div>
+{% endblock %}
+
